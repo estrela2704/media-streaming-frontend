@@ -1,6 +1,6 @@
 <div class="video-container" [class.dark-mode]="isDarkMode">
   <div class="mode-toggle">
-    <mat-slide-toggle (change)="toggleMode()" color="accent">
+    <mat-slide-toggle (change)="toggleMode()" color="primary" class="theme-toggle">
       <mat-icon>{{ isDarkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
     </mat-slide-toggle>
   </div>
