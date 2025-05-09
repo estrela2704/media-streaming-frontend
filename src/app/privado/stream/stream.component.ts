@@ -18,7 +18,8 @@ export class StreamComponent implements OnInit {
  
   videoUrl?: string; 
   filename!: string;
-  isDarkMode = false;
+  isDarkMode = true;
+  videoExists = false;
 
   private route = inject(ActivatedRoute);
   private streamService = inject(StreamService);
@@ -26,6 +27,9 @@ export class StreamComponent implements OnInit {
   ngOnInit(): void {
     this.filename = this.route.snapshot.paramMap.get("filename")!;
     this.videoUrl = this.streamService.getVideoUrl(this.filename);
+    this.streamService.videoExists(this.videoUrl).subscribe(exists => {
+      this.videoExists = exists
+    })
   }
 
   toggleMode(){
