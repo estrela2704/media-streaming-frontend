@@ -1,0 +1,38 @@
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 1rem;
+  position: relative;
+
+  &.dark-mode {
+    background-color: #121212;
+    color: #fff;
+
+    .mat-slide-toggle-thumb {
+      background-color: #90caf9 !important;
+    }
+  }
+
+  .mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    mat-slide-toggle {
+      display: flex;
+      align-items: center;
+
+      mat-icon {
+        margin-left: 8px;
+      }
+    }
+  }
+
+
+}

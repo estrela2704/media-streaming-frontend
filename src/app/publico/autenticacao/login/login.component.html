@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="auth-container" [class.dark-mode]="isDarkMode">
+  <h2>Login</h2>
+
+  <form>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="full-width google">Entrar</button>
+
+    <div class="divider">ou</div>
+
+    <button mat-raised-button color="primary" class="full-width google" >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="20" height="20" style="margin-right: 8px;" />
+      <mat-icon>google</mat-icon>
+    </button>
+
+    <p class="link">Não tem conta? <a routerLink="/cadastro">Cadastre-se</a></p>
+  </form>
+</div>

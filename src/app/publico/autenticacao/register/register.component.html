@@ -1,0 +1,51 @@
+<div class="auth-container" [class.dark-mode]="isDarkMode">
+  @if(!codigoEnviado){
+    <h2>Cadastro</h2>
+
+    <form>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirmar senha</mat-label>
+        <input matInput type="password" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width google" (click)="enviarCodigo()">Cadastrar</button>
+
+      <div class="divider">ou</div>
+
+      <button  mat-raised-button color="primary" class="full-width google">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="20" height="20" style="margin-right: 8px;" />
+        <mat-icon>google</mat-icon>
+      </button>
+
+      <p class="link">Já tem conta? <a routerLink="/login">Fazer login</a></p>
+    </form>
+
+  } @else {
+    <h2>Verifique seu Email</h2>
+
+    <form>
+      <p>Enviamos um código de confirmação para seu e-mail.</p>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Código</mat-label>
+        <input matInput required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width">Confirmar</button>
+    </form>
+  }
+
+
+
+
+</div>

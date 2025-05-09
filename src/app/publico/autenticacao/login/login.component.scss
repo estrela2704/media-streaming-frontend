@@ -1,0 +1,67 @@
+.auth-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .divider {
+    margin: 1rem 0;
+    color: gray;
+  }
+
+  .link {
+    margin-top: 1rem;
+  }
+
+  .google {
+    background-color: #333 ;
+    color: #fff;
+    border: 1px solid #555;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 8px;
+    }
+
+    &:hover {
+      background-color: #444;
+    }
+  }
+  &.dark-mode {
+    .google {
+      color: #333;
+      border: 1px solid #fff;
+      background-color: #f7f7f7;
+
+      &:hover {
+        background-color: #444;
+        color: #fff;
+      }
+
+      &:active {
+        background-color: #222;
+      }
+    }
+
+    button {
+      background-color: #444;
+      color: #fff;
+
+      &:hover {
+        color: #fff;
+        background-color: #555;
+      }
+
+      &:active {
+        background-color: #222;
+      }
+    }
+  }
+}

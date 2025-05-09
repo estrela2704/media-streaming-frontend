@@ -1,11 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { ThemeService } from '../../../service/theme.service';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule 
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  constructor(private themeService: ThemeService) {}
 
+  get isDarkMode() {
+    return this.themeService.isDarkMode();
+  }
 }

@@ -19,7 +19,6 @@ import { Mensagem } from '../../interfaces/mensagem.interface';
 export class StreamComponent implements OnInit {
  
   videoUrl: string | null = null; 
-  isDarkMode = true;
   videoExists = false;
   mensagem: Mensagem | null = null;
 
@@ -59,10 +58,5 @@ export class StreamComponent implements OnInit {
 
       })
   }
-
-  toggleMode(){
-    this.isDarkMode = !this.isDarkMode;
-  }
-
 
 }

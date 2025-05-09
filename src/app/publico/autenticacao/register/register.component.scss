@@ -1,0 +1,4 @@
+@use '../login/login.component.scss' as login;
+.auth-container {
+  @extend .auth-container;
+}
