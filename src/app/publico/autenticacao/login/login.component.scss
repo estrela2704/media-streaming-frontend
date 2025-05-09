@@ -66,3 +66,15 @@
     }
   }
 }
+
+a[routerLink] {
+  text-decoration: none;  /* Remove o sublinhado */
+  color: inherit;  /* Herda a cor do texto */
+  cursor: pointer;  /* Garante que o cursor de clique seja exibido */
+  transition: all 0.3s ease;  /* Suaviza a transição de cor e tamanho */
+}
+
+a[routerLink]:hover {
+  color: #444;  /* Cor desejada para o texto no hover */
+  transform: scale(1.05);  /* Faz o texto crescer um pouco */
+}

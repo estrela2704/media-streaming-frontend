@@ -3,6 +3,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ThemeService } from '../../../service/theme.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { ThemeService } from '../../../service/theme.service';
   imports: [
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    RouterLink
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'

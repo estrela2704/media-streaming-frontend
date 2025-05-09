@@ -2,3 +2,15 @@
 .auth-container {
   @extend .auth-container;
 }
+
+
+a[routerLink] {
+  text-decoration: none;  /* Remove o sublinhado */
+  color: inherit;  /* Herda a cor do texto */
+  cursor: pointer;  /* Garante que o cursor de clique seja exibido */
+}
+
+a[routerLink]:hover {
+  color: #444;  /* Cor desejada para o texto no hover */
+  transform: scale(2);  /* Faz o texto crescer um pouco */
+}
