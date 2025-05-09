@@ -1,4 +1,17 @@
-<video width="640" height="360" controls>
-<source [src]="videoUrl" type="video/mp4" />
-Seu navegador não suporta o elemento de vídeo.
-</video>
+<div class="video-container" [class.dark-mode]="isDarkMode">
+  <div class="mode-toggle">
+    <mat-slide-toggle
+      (change)="toggleMode()"
+      color="accent"
+    >
+      <mat-icon>{{ isDarkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
+    </mat-slide-toggle>
+  </div>
+
+  <div class="video-wrapper">
+    <video width="100%" height="auto" controls>
+      <source [src]="videoUrl" type="video/mp4" />
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+  </div>
+</div>
