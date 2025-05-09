@@ -12,11 +12,12 @@
         Seu navegador não suporta o elemento de vídeo.
       </video>
     </div>
-  } @else {
-    <div class="no-video-message">
-      <mat-icon class="warning-icon" color="warn">videocam_off</mat-icon>
-      <p>Oops! Este vídeo não está disponível no momento.</p>
-      <small>Verifique se o arquivo foi enviado corretamente ou tente novamente mais tarde.</small>
-    </div>
   }
+
+  @if(mensagem && !videoExists){
+    <mat-icon class="warning-icon" color="warn">{{ mensagem.icon }}</mat-icon>
+    <p>{{ mensagem.title }}</p>
+    <small>{{ mensagem.detail }}</small>
+  }
+  
 </div>

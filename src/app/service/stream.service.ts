@@ -15,8 +15,10 @@ export class StreamService {
     return `${this.apiUrl}/${filename}`;
   }
 
-  public videoExists(videoUrl: string): Observable<boolean>{
-    return this.http.get(videoUrl, { responseType: 'blob'}).pipe(
+  public videoExists(filename: string): Observable<boolean>{
+    const url = this.getVideoUrl(filename); // monta a URL aqui
+
+    return this.http.get(url, { responseType: 'blob'}).pipe(
       map(() => true),
       catchError( () => of(false))
     )

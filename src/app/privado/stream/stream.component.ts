@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { StreamService } from '../../service/stream.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { map, of, switchMap } from 'rxjs';
+import { Mensagem } from '../../interfaces/mensagem.interface';
 
 
 @Component({
@@ -16,20 +18,46 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class StreamComponent implements OnInit {
  
-  videoUrl?: string; 
-  filename!: string;
+  videoUrl: string | null = null; 
   isDarkMode = true;
   videoExists = false;
+  mensagem: Mensagem | null = null;
 
   private route = inject(ActivatedRoute);
   private streamService = inject(StreamService);
 
   ngOnInit(): void {
-    this.filename = this.route.snapshot.paramMap.get("filename")!;
-    this.videoUrl = this.streamService.getVideoUrl(this.filename);
-    this.streamService.videoExists(this.videoUrl).subscribe(exists => {
-      this.videoExists = exists
-    })
+
+    this.route.queryParamMap.pipe(
+      map(params => params.get('v')),
+      switchMap(filename => {
+        if(!filename) {
+          this.videoUrl = null;
+          this.videoExists = false;
+          this.mensagem = {
+            icon: 'info',
+            title: 'Nenhum vídeo selecionado.',
+            detail: 'Adicione um parâmetro ?v=nome-do-arquivo.mp4 na URL para assistir.',
+          };
+          return of(false)
+        };
+
+        this.videoUrl = this.streamService.getVideoUrl(filename);
+        this.mensagem = null;
+        return this.streamService.videoExists(filename);
+      })
+      ).subscribe((exists: boolean) => {
+        this.videoExists = exists;
+
+        if(!exists && this.videoUrl){
+            this.mensagem = {
+              icon: 'videocam_off',
+              title: 'Oops! Este vídeo não está disponível no momento.',
+              detail: 'Verifique se o arquivo foi enviado corretamente ou tente novamente mais tarde.',
+            };
+        }
+
+      })
   }
 
   toggleMode(){
